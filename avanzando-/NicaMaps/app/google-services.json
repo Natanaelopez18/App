@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "955496157672",
+    "firebase_url": "https://nicamaps-8f51e.firebaseio.com",
+    "project_id": "nicamaps-8f51e",
+    "storage_bucket": "nicamaps-8f51e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955496157672:android:b48d339606427109",
+        "android_client_info": {
+          "package_name": "com.uca.apps.isi.nct"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955496157672-42aotifv22rqcfh616igcvm40f4n0n1b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uca.apps.isi.nct",
+            "certificate_hash": "11667eb6cc0e0d3c1f183337eb63da7b117f7fe0"
+          }
+        },
+        {
+          "client_id": "955496157672-66hiin2qnve0ej0v2ta1nq2n2a9piuqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgtg8sj7FJwS-14L9RYgs_lpSkOWv5lbY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955496157672-66hiin2qnve0ej0v2ta1nq2n2a9piuqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
