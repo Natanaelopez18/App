@@ -37,16 +37,17 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/create"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/complaint_add_activity_button_create"
-        android:onClick="crear"/>
-    <Button
         android:id="@+id/boton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seleccionar imagen"
-        android:onClick="caragar"/>
+        android:onClick="caragar"
+        android:text="Seleccionar imagen" />
+
+    <Button
+        android:id="@+id/create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="crear"
+        android:text="@string/complaint_add_activity_button_create" />
 
 </LinearLayout>

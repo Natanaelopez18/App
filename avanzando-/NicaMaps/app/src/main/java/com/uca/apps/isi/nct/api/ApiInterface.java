@@ -8,7 +8,6 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 import com.uca.apps.isi.nct.models.AccessToken;
@@ -39,5 +38,8 @@ public interface ApiInterface {
 
     @POST("Pictures")
     Call<Picture> createPicture(@Body Picture picture,@Header("Authorization") String authorization);
+
+    @GET("Pictures")
+    Call<List<Picture>> getPictures(@Header("Authorization") String authorization);
 
 }

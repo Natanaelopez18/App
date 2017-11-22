@@ -12,9 +12,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 import com.tumblr.remember.Remember;
 import com.uca.apps.isi.nct.Adapters.MyComplaintUserAdapter;
+import com.uca.apps.isi.nct.Adapters.PictureAdapter;
 import com.uca.apps.isi.nct.R;
 import com.uca.apps.isi.nct.api.Api;
 import com.uca.apps.isi.nct.models.Complaint;
+import com.uca.apps.isi.nct.models.Picture;
+
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,11 +42,15 @@ public class MyComplaintsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_complaints, container, false);
 
+
+
         //Call init method
 
         init(view);
+        //ini(view);
 
         return view;
+
     }
 
     /**
@@ -55,21 +62,6 @@ public class MyComplaintsFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_view1);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-       /* String[] titles = new String[3];
-        titles[0] = "Tubería Rota";
-        titles[1] = "Animal en el agua";
-        titles[2] = "Basura en las alcantarillas";
-
-
-        String[] urls = new String[10];
-        urls[0] = "http://analisisrealista.com/wp-content/uploads/2014/04/tuber%C3%ADa-rota.jpg";
-        urls[1] = "https://c2.staticflickr.com/4/3695/10934991046_b22963c5b7_b.jpg";
-        urls[2] = "https://contactohoy.com.mx/wp-content/uploads/2016/04/Basura-alcantarilla-min.jpg";
-
-        MyComplaintAdapter myComplaintAdapter = new MyComplaintAdapter(titles, urls);
-        recyclerView.setAdapter(myComplaintAdapter);*/
-
 
 
         Call<List<Complaint>> call = Api.instance().getMyComplaint(Remember.getString("access_token", ""));
@@ -92,6 +84,55 @@ public class MyComplaintsFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<Complaint>> call, Throwable t) {
+                Log.e("xD", t.getMessage());
+
+            }
+        });
+    }
+
+
+    private void ini(View view){
+        recyclerView = view.findViewById(R.id.recycler_view1);
+        recyclerView.setHasFixedSize(false);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+       /* String[] titles = new String[3];
+        titles[0] = "Tubería Rota";
+        titles[1] = "Animal en el agua";
+        titles[2] = "Basura en las alcantarillas";
+
+
+        String[] urls = new String[10];
+        urls[0] = "http://analisisrealista.com/wp-content/uploads/2014/04/tuber%C3%ADa-rota.jpg";
+        urls[1] = "https://c2.staticflickr.com/4/3695/10934991046_b22963c5b7_b.jpg";
+        urls[2] = "https://contactohoy.com.mx/wp-content/uploads/2016/04/Basura-alcantarilla-min.jpg";
+
+        MyComplaintAdapter myComplaintAdapter = new MyComplaintAdapter(titles, urls);
+        recyclerView.setAdapter(myComplaintAdapter);*/
+
+
+
+
+        Call<List<Picture>> call = Api.instance().getPictures(Remember.getString("access_token", ""));
+        call.enqueue(new Callback<List<Picture>>() {
+            @Override
+            public void onResponse(Call<List<Picture>> call, Response<List<Picture>> response) {
+                if(response.body() != null) {
+
+                    /*for(Complaint complaint : response.body()) {
+                        Log.i("DEBUG", complaint.getTitle());
+                    }*/
+
+                    PictureAdapter pictureAdapter = new PictureAdapter(response.body());
+                    recyclerView.setAdapter(pictureAdapter);
+                }
+                else{
+                    Toast.makeText(getContext(), "Error al cargar las denuncias", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Picture>> call, Throwable t) {
                 Log.e("xD", t.getMessage());
 
             }

@@ -18,4 +18,5 @@
     <dimen name="activity_main_input_padding">40dp</dimen>
     <dimen name="activity_main_margin">15dp</dimen>
     <dimen name="activity_main_margin_bottom">70dp</dimen>
+    <dimen name="activity_sign_up_icon_size">130dp</dimen>
 </resources>
